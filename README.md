@@ -11,3 +11,7 @@ Offical Repository Link(With Build Instructions):https://github.com/SerenityOS/s
 
 
 Please Support Offical SerenityOS Developers!
+
+OS ussed for Building SerenityOS:
+
+Manjaro KDE (Unstable Branch)
