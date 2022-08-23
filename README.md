@@ -3,7 +3,7 @@ Ready builds of OS Serenity will be located here.
 
 P.S: Not Official Builds, Serenity Developers Not Building images for OS, they have only Source Code.
 
-vmWare version may not boot, use VirtualBox instead.
+vmWare version may not boot, use VirtualBox version instead.
 
 
 Offical Repository Link(With Build Instructions):https://github.com/SerenityOS/serenity
