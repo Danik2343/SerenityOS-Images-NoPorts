@@ -31,7 +31,12 @@ jobs:
       - name: Installing Dependencies
         run: sudo apt install zip build-essential cmake curl libmpfr-dev libmpc-dev libgmp-dev e2fsprogs ninja-build qemu-system-gui qemu-system-x86 qemu-utils ccache rsync unzip texinfo gcc-11 g++-11 git -y
       - name: Cloling SerenityOS
-        run: cd ~ && mkdir SerenityOS && cd SerenityOS %% git clone https://github.com/SerenityOS/serenity && cd serenity
+        run: |
+              cd ~
+              mkdir SerenityOS
+              cd SerenityOS
+              git clone https://github.com/SerenityOS/serenity
+              cd serenity
       - name: Parsing Commit ID and DATE
         run: HEAD=$(git rev-parse --short HEAD) && DATE=$(date)
       - name: Building ToolChain
