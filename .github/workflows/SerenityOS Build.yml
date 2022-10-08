@@ -40,17 +40,19 @@ jobs:
       - name: Parsing Commit ID and DATE
         run: HEAD=$(git rev-parse --short HEAD) && DATE=$(date)
       - name: Preparing to Building
-        run:  sudo cp ~/SerenityOS/serenity -rfv /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/
+        run:  | 
+               cd ~/SerenityOS/serenity
+               sudo cp * -rfv /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts
       - name: Building ToolChain
         run: |
-              cd /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/
-              sudo chmod 777 serenity
-              cd /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/serenity
+              cd /home/runner/work/SerenityOS-Images-NoPorts/
+              sudo chmod 777 SerenityOS-Images-NoPorts/
+              cd /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/
               sudo chmod -R 777 *
               ls
-              /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/serenity/Meta/serenity.sh rebuild-toolchain
+              /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Meta/serenity.sh rebuild-toolchain
       - name: Building SerenityOS
-        run: /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/serenity/Meta/serenity.sh build
+        run: /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Meta/serenity.sh build
       - name: Building GRUB Disk Image
         run: |
               cd Build/i686
