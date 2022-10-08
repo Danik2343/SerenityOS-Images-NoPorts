@@ -44,7 +44,7 @@ jobs:
       - name: Building ToolChain
         run: |
               cd /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/
-              chmod -r 777 serenity
+              sudo chmod -r serenity 777
               cd /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/serenity
               ls
               /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/serenity/Meta/serenity.sh rebuild-toolchain
