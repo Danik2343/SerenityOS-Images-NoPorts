@@ -42,9 +42,9 @@ jobs:
       - name: Preparing to Building
         run:  sudo cp ~/SerenityOS/serenity -rfv /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/
       - name: Building ToolChain
-        run: ~/SerenityOS/serenity/Meta/serenity.sh rebuild-toolchain
+        run: /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Meta/serenity.sh rebuild-toolchain
       - name: Building SerenityOS
-        run: ~/SerenityOS/serenity/Meta/serenity.sh build
+        run: /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Meta/serenity.sh build
       - name: Building GRUB Disk Image
         run: |
               cd Build/i686
