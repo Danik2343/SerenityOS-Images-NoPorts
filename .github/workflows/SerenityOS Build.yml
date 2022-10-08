@@ -43,11 +43,11 @@ jobs:
         run:  sudo cp ~/SerenityOS/serenity -rfv /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/
       - name: Building ToolChain
         run: |
-              cd /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts
+              cd /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/serenity
               ls
-              /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Meta/serenity.sh rebuild-toolchain
+              /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/serenity/Meta/serenity.sh rebuild-toolchain
       - name: Building SerenityOS
-        run: /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Meta/serenity.sh build
+        run: /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/serenity/Meta/serenity.sh build
       - name: Building GRUB Disk Image
         run: |
               cd Build/i686
