@@ -85,6 +85,7 @@ jobs:
              qemu-img convert -O vmdk /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/grub_disk_image /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/serenityos.vmdk
       - name: Images to ZIP
         run: |
+              cd /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64
               mkdir ZIPBUILD
               cd ZIPBUILD
               zip SerenityOS_Build_$DATE,$HEAD.zip /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/serenityos.vmdk /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/serenityos.vdi
