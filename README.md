@@ -1,4 +1,4 @@
-[![SerenityOS Build (No Ports)](https://github.com/Danik2343/SerenityOS-Images-NoPorts/actions/workflows/SerenityOS_Build(NoPorts).yml/badge.svg)](https://github.com/Danik2343/SerenityOS-Images-NoPorts/actions)
+
 
 # SerenityOS-Images-NoPorts
 Ready builds of OS Serenity will be located here.
