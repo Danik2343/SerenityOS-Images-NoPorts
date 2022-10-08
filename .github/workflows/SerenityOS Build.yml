@@ -44,7 +44,7 @@ jobs:
       - name: Building ToolChain
         run: |
               cd /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/
-              sudo chmod serenity 777
+              sudo chmod 777 serenity
               cd /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/serenity
               sudo chmod -R 777 *
               ls
