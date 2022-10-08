@@ -1,8 +1,4 @@
-
-
-
-
-Unfortunately, I'm going away for a month, sometimes I can release images, I'm sorry.
+[![SerenityOS Build](https://github.com/Danik2343/SerenityOS-Images-NoPorts/actions/workflows/SerenityOS%20Build.yml/badge.svg?branch=main)](https://github.com/Danik2343/SerenityOS-Images-NoPorts/actions/workflows/SerenityOS%20Build.yml)
 
 
 
