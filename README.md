@@ -1,4 +1,4 @@
-[![SerenityOS Build](https://github.com/Danik2343/SerenityOS-Images-NoPorts/actions/workflows/SerenityOS%20Build.yml/badge.svg?branch=main)](https://github.com/Danik2343/SerenityOS-Images-NoPorts/actions/workflows/SerenityOS%20Build.yml)
+[![SerenityOS Build](https://github.com/<org>/<repo>/actions/workflows/<filename>/badge.svg?branch=main)](https://github.com/Danik2343/SerenityOS-Images-NoPorts/actions/workflows/SerenityOS%20Build.yml)
 
 
 
