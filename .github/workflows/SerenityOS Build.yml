@@ -28,6 +28,19 @@ jobs:
       # Runs a single command using the runners shell
       - name: Updating System
         run: sudo apt update && sudo apt full-upgrade -y
+      - name: Installing Dependencies
+        run: sudo apt install build-essential cmake curl libmpfr-dev libmpc-dev libgmp-dev e2fsprogs ninja-build qemu-system-gui qemu-system-x86 qemu-utils ccache rsync unzip texinfo gcc-11 g++-11 git -y
+      - name: Cloling SerenityOS
+        run: cd ~ && mkdir SerenityOS && cd SerenityOS %% git clone https://github.com/SerenityOS/serenity && cd serenity &&
+      - name: Parsing Commit ID
+        run: HEAD=$(git rev-parse --short HEAD)
+      - name: Building ToolChain
+        run: Meta/serenity.sh rebuild-toolchain
+      - name: Building SerenityOS
+        run: Meta/serenity.sh build
+      - name: Building GRUB Disk Image
+        run: cd Build/i686 && ninja grub-image
+      
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
