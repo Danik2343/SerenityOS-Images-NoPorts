@@ -42,6 +42,7 @@ jobs:
         run: |
                 ccache -M 4000M
                 ccache -s
+                CCACHE_DIR="/home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/.ccache"
       - name: Parsing Commit ID and DATE
         run: HEAD=$(git rev-parse --short HEAD) && DATE=$(date)
       - name: Preparing to Building
