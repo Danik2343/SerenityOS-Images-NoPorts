@@ -38,7 +38,7 @@ jobs:
               git clone https://github.com/SerenityOS/serenity
               cd serenity
       - name: Parsing Commit ID and DATE
-        run: HEAD=$(git rev-parse --short HEAD) && DATE=$(date) && SERENITY_SOURCE_DIR=$(~/SerenityOS/serenity/)
+        run: HEAD=$(git rev-parse --short HEAD) && DATE=$(date) && SERENITY_SOURCE_DIR="$~/SerenityOS/serenity/"
       - name: Building ToolChain
         run: ~/SerenityOS/serenity/Meta/serenity.sh rebuild-toolchain
       - name: Building SerenityOS
@@ -47,7 +47,7 @@ jobs:
         run: |
               cd Build/i686
               ninja grub-image
-      - name: Converting GRUB Disk Image to VirtuBox/vmWare Images
+      - name: Converting GRUB Disk Image to VirtualBox/vmWare Images
         run: qemu-img convert -O vdi grub_disk_image serenityos.vdi && qemu-img convert -O vmdk grub_disk_image serenityos.vmdk
       - name: Images to ZIP
         run: zip SerenityOS_Build_$DATE,$HEAD.zip serenityos.vmdk serenityos.vdi
