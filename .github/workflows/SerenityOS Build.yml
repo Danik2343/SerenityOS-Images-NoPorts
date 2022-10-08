@@ -48,7 +48,7 @@ jobs:
                 ccache -s
       - name: Parsing Commit ID and DATE
         run: |
-               cd ~SerenityOS/serenity
+               cd ~/SerenityOS/serenity
                HEAD=$(git rev-parse --short HEAD) && DATE=$(date)
                echo $HEAD
                echo $DATE
