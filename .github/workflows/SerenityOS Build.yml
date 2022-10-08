@@ -37,12 +37,11 @@ jobs:
               cd SerenityOS
               git clone https://github.com/SerenityOS/serenity
               cd serenity
+              rm -f README.MD
       - name: Parsing Commit ID and DATE
         run: HEAD=$(git rev-parse --short HEAD) && DATE=$(date)
       - name: Preparing to Building
-        run: | 
-               sudo rm -f /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/README.MD
-               sudo cp * -rfv /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/
+        run:  sudo cp * -rfv /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/
       - name: Building ToolChain
         run: ~/SerenityOS/serenity/Meta/serenity.sh rebuild-toolchain
       - name: Building SerenityOS
