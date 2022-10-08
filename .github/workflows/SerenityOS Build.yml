@@ -47,7 +47,10 @@ jobs:
                 ccache -M 5000M
                 ccache -s
       - name: Parsing Commit ID and DATE
-        run: HEAD=$(git rev-parse --short HEAD) && DATE=$(date)
+        run: |
+               HEAD=$(git rev-parse --short HEAD) && DATE=$(date)
+               echo $HEAD
+               echo $DATE
       - name: Preparing to Building
         run:  | 
                cd ~/SerenityOS/serenity
