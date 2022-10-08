@@ -40,7 +40,7 @@ jobs:
       - name: Parsing Commit ID and DATE
         run: HEAD=$(git rev-parse --short HEAD) && DATE=$(date)
       - name: Preparing to Building
-      - run:  sudo cp * -rfv /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/
+        run:  sudo cp * -rfv /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/
       - name: Building ToolChain
         run: ~/SerenityOS/serenity/Meta/serenity.sh rebuild-toolchain
       - name: Building SerenityOS
