@@ -58,9 +58,7 @@ jobs:
               cd /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/i686
               ninja grub-image
       - name: Converting GRUB Disk Image to VirtualBox/vmWare Images
-        run: qemu-img convert -O vdi /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/grub_disk_image /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/serenityos.vdi && qemu-img convert -O vmdk /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/grub_disk_image /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/serenityos.vmdk
-      - name: Images to ZIP
-        run: zip SerenityOS_Build_$DATE,$HEAD.zip /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/serenityos.vmdk /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/serenityos.vdi
+        run: qemu-img convert -O vdi /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/i686/grub_disk_image /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/i686/serenityos.vdi && qemu-img convert -O vmdk /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/i686/grub_disk_image /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/i686/serenityos.vdi
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.0
         with:
