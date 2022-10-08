@@ -55,17 +55,17 @@ jobs:
         run: /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Meta/serenity.sh build
       - name: Building GRUB Disk Image
         run: |
-              cd Build/i686
+              cd /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/i686
               ninja grub-image
       - name: Converting GRUB Disk Image to VirtualBox/vmWare Images
-        run: qemu-img convert -O vdi grub_disk_image serenityos.vdi && qemu-img convert -O vmdk grub_disk_image serenityos.vmdk
+        run: qemu-img convert -O vdi /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/grub_disk_image /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/serenityos.vdi && qemu-img convert -O vmdk /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/grub_disk_image /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/serenityos.vmdk
       - name: Images to ZIP
-        run: zip SerenityOS_Build_$DATE,$HEAD.zip serenityos.vmdk serenityos.vdi
+        run: zip SerenityOS_Build_$DATE,$HEAD.zip /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/serenityos.vmdk /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/serenityos.vdi
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.0
         with:
     # Artifact name
           name: SerenityOS_Build_$DATE,$HEAD.zip
     # A file, directory or wildcard pattern that describes what to upload
-          path: SerenityOS_Build_$DATE,$HEAD.zip
+          path: /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/SerenityOS_Build_$DATE,$HEAD.zip
 
