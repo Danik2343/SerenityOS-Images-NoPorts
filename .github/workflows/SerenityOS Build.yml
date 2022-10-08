@@ -72,12 +72,14 @@ jobs:
              qemu-img convert -O vdi /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/grub_disk_image /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/serenityos.vdi
              qemu-img convert -O vmdk /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/grub_disk_image /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/serenityos.vmdk
       - name: Images to ZIP
-        run: zip SerenityOS_Build_$DATE,$HEAD.zip /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/serenityos.vmdk /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/serenityos.vdi
+        run: |
+              mkdir ZIPBUILD
+              zip /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/ZIPBUILD/SerenityOS_Build_$DATE,$HEAD.zip /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/serenityos.vmdk /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/serenityos.vdi
       - name: Preparing for Upload
         run: |
               cd /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/
               mkdir Artifact
-              sudo cp SerenityOS_Build_$DATE,$HEAD.zip /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/Artifact
+              sudo cp /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/ZIPBUILD/*.zip /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/Artifact
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.0
         with:
