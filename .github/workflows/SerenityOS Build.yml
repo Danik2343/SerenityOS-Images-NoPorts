@@ -38,7 +38,7 @@ jobs:
               git clone https://github.com/SerenityOS/serenity
               cd serenity
       - name: Parsing Commit ID and DATE
-        run: HEAD=$(git rev-parse --short HEAD) && DATE=$(date)
+        run: HEAD=$(git rev-parse --short HEAD) && DATE=$(date) && SERENITY_SOURCE_DIR=$(~/SerenityOS/serenity/)
       - name: Building ToolChain
         run: ~/SerenityOS/serenity/Meta/serenity.sh rebuild-toolchain
       - name: Building SerenityOS
