@@ -41,6 +41,7 @@ jobs:
         run: |
                 sudo /usr/sbin/update-ccache-symlinks
                 echo 'export PATH="/usr/lib/ccache:$PATH"' | tee -a ~/.bashrc
+                export PATH="/usr/lib/ccache/:$PATH"
                 source ~/.bashrc && echo $PATH
                 which g++ gcc
                 ccache -M 5000M
