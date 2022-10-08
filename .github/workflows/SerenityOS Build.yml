@@ -29,7 +29,9 @@ jobs:
       - name: Updating System
         run: sudo apt update && sudo apt full-upgrade -y
       - name: Installing Dependencies
-        run: sudo apt install zip build-essential cmake ccache libboost-dev curl libmpfr-dev libmpc-dev libgmp-dev e2fsprogs ninja-build qemu-system-gui qemu-system-x86 qemu-utils ccache rsync unzip texinfo gcc-11 g++-11 git -y
+        run: sudo apt install zip build-essential neofetch figlet lolcat cmake ccache libboost-dev curl libmpfr-dev libmpc-dev libgmp-dev e2fsprogs ninja-build qemu-system-gui qemu-system-x86 qemu-utils ccache rsync unzip texinfo gcc-11 g++-11 git -y
+      - name: System Information:Neofetch
+        run: neofetch
       - name: Cloning SerenityOS
         run: |
               cd ~
@@ -66,8 +68,11 @@ jobs:
               /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Meta/serenity.sh rebuild-toolchain
       - name: Ccache Status After Build ToolChain
         run: ccache -s
-      - name: Building SerenityOS
-        run: /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Meta/serenity.sh build
+      - name: Building SerenityOS and updating Date of Build
+        run: | 
+             /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Meta/serenity.sh build
+             DATE=$(date)
+             echo $DATE
       - name: Ccache Status After Build SerenityOS
         run: ccache -s
       - name: Building GRUB Disk Image
@@ -87,7 +92,8 @@ jobs:
         run: |
               cd /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/
               mkdir Artifact
-              sudo cp /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/ZIPBUILD/* /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/Artifact
+              cd ZIPBUILD
+              sudo cp * /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/Artifact/
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.0
         with:
