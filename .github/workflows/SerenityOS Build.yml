@@ -40,11 +40,13 @@ jobs:
       - name: Parsing Commit ID and DATE
         run: HEAD=$(git rev-parse --short HEAD) && DATE=$(date)
       - name: Building ToolChain
-        run: Meta/serenity.sh rebuild-toolchain
+        run: ~/SerenityOS/serenity/Meta/serenity.sh rebuild-toolchain
       - name: Building SerenityOS
-        run: Meta/serenity.sh build
+        run: ~/SerenityOS/serenity/Meta/serenity.sh build
       - name: Building GRUB Disk Image
-        run: cd Build/i686 && ninja grub-image
+        run: |
+              cd Build/i686
+              ninja grub-image
       - name: Converting GRUB Disk Image to VirtuBox/vmWare Images
         run: qemu-img convert -O vdi grub_disk_image serenityos.vdi && qemu-img convert -O vmdk grub_disk_image serenityos.vmdk
       - name: Images to ZIP
