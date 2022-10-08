@@ -29,7 +29,8 @@ jobs:
       - name: Updating System
         run: sudo apt update && sudo apt full-upgrade -y
       - name: Installing Dependencies
-        run: sudo apt install zip build-essential cmake curl libmpfr-dev libmpc-dev libgmp-dev e2fsprogs ninja-build qemu-system-gui qemu-system-x86 qemu-utils ccache rsync unzip texinfo gcc-11 g++-11 git -y
+        run: sudo apt install zip build-essential cmake ccache libboost-dev curl libmpfr-dev libmpc-dev libgmp-dev e2fsprogs ninja-build qemu-system-gui qemu-system-x86 qemu-utils ccache rsync unzip texinfo gcc-11 g++-11 git -y
+      
       - name: Cloning SerenityOS
         run: |
               cd ~
@@ -37,6 +38,10 @@ jobs:
               cd SerenityOS
               git clone https://github.com/SerenityOS/serenity
               cd serenity
+      - name: Setup ccache
+        run: |
+                ccache -M 4000M
+                ccache -s
       - name: Parsing Commit ID and DATE
         run: HEAD=$(git rev-parse --short HEAD) && DATE=$(date)
       - name: Preparing to Building
@@ -51,8 +56,12 @@ jobs:
               sudo chmod -R 777 *
               ls
               /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Meta/serenity.sh rebuild-toolchain
+      - name: Ccache Status After Build ToolChain
+        run: ccache -s
       - name: Building SerenityOS
         run: /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Meta/serenity.sh build
+      - name: Ccache Status After Build SerenityOS
+        run: ccache -s
       - name: Building GRUB Disk Image
         run: |
               cd /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/i686
