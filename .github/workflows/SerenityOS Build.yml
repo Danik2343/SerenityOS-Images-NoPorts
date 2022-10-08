@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  SerenityOS_Build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -29,7 +29,7 @@ jobs:
       - name: Updating System
         run: sudo apt update && sudo apt full-upgrade -y
       - name: Installing Dependencies
-        run: sudo apt zip install build-essential cmake curl libmpfr-dev libmpc-dev libgmp-dev e2fsprogs ninja-build qemu-system-gui qemu-system-x86 qemu-utils ccache rsync unzip texinfo gcc-11 g++-11 git -y
+        run: sudo apt install zip build-essential cmake curl libmpfr-dev libmpc-dev libgmp-dev e2fsprogs ninja-build qemu-system-gui qemu-system-x86 qemu-utils ccache rsync unzip texinfo gcc-11 g++-11 git -y
       - name: Cloling SerenityOS
         run: cd ~ && mkdir SerenityOS && cd SerenityOS %% git clone https://github.com/SerenityOS/serenity && cd serenity
       - name: Parsing Commit ID and DATE
