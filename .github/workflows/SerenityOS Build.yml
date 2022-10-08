@@ -45,7 +45,7 @@ jobs:
         run: |
               cd /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/serenity
               ls
-              /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/serenity/Meta/serenity.sh rebuild-toolchain
+              sudo /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/serenity/Meta/serenity.sh rebuild-toolchain
       - name: Building SerenityOS
         run: /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/serenity/Meta/serenity.sh build
       - name: Building GRUB Disk Image
