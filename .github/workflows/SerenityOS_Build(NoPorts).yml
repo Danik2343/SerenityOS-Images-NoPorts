@@ -89,11 +89,14 @@ jobs:
               mkdir ZIPBUILD
               cd ZIPBUILD
               zip SerenityOS_Build_$DATE,$HEAD.zip /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/serenityos.vmdk /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/serenityos.vdi
+              ls
       - name: Preparing for Upload
         run: |
               cd /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/
+              ls
               mkdir Artifact
               cd ZIPBUILD
+              ls
               sudo cp * /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/Artifact/
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.0
