@@ -37,7 +37,6 @@ jobs:
               cd SerenityOS
               git clone https://github.com/SerenityOS/serenity
               cd serenity
-              rm -f README.MD
       - name: Parsing Commit ID and DATE
         run: HEAD=$(git rev-parse --short HEAD) && DATE=$(date)
       - name: Preparing to Building
