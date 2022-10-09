@@ -6,7 +6,11 @@ P.S: Not Official Builds, Serenity Developers Not Building images for OS, they h
 
 vmWare version may not boot, use VirtualBox version instead.
 
-
+# How to use
+1. Fork this repository
+2. Start Workflow in Actions Tab
+3. Wait for Builded SerenityOS images (VirtualBox and vmWare)
+4. Enjoy!
 
  Now Serenity builds will be built automatically.
  It is planned to add automatic checking for updates to the official Serenity repository.
