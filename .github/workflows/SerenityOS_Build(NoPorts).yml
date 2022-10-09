@@ -89,7 +89,7 @@ jobs:
               mkdir ZIPBUILD
               cd ZIPBUILD
               HEAD=$(git rev-parse --short HEAD) && DATE=$(date)
-              zip SerenityOS_Build_(NoPorts)_$DATE,$HEAD.zip /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/serenityos.vmdk /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/serenityos.vdi
+              zip SerenityOS_Build_NoPorts_$DATE,$HEAD.zip /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/serenityos.vmdk /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/serenityos.vdi
               ls
       - name: Preparing for Upload
         run: |
