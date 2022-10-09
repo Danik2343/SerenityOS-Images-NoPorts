@@ -76,7 +76,9 @@ jobs:
       - name: Ccache Status After Build SerenityOS
         run: ccache -s
       - name: Building All Ports
-        run: /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Ports/build_all.sh
+        run:  |  
+              cd /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Ports
+              ./build_all.sh
       - name: Ccache Status After Build All Ports
         run: ccache -s
       - name: Building GRUB Disk Image
