@@ -103,7 +103,7 @@ jobs:
               ls
               sudo cp * /home/runner/work/SerenityOS-Images-NoPorts/SerenityOS-Images-NoPorts/Build/x86_64/Artifact/
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v3.1.0
+        uses: actions/upload-artifact@v4
         with:
     # Artifact name
           name: SerenityOS_Build(NoPorts)
